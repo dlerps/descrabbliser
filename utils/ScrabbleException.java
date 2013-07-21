@@ -1,6 +1,6 @@
 package utils;
 
-public class ScrabbleException extends Exception
+public class ScrabbleException extends RuntimeException
 {
 
 	/* ------------------------------------------------ *
