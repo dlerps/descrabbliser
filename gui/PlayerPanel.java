@@ -20,6 +20,11 @@ import core.Game;
 
 import utils.Toolbox;
 
+/**
+ * 
+ * @author Daniel Lerps
+ * @version v1.1
+ */
 public class PlayerPanel extends JPanel
 {
 	/* ---------------------------------------------------- *
@@ -45,6 +50,7 @@ public class PlayerPanel extends JPanel
 
 	private JButton btnAddPlayer;
 	private JButton btnRemovePlayer;
+	private JButton btnStart;
 	
 	private JList<Game.Player> playerList;
 	
@@ -63,7 +69,7 @@ public class PlayerPanel extends JPanel
 		initButtonArea();
 		initPlayerList();
 		
-		setPreferredSize(new Dimension(150, 300));
+		setPreferredSize(new Dimension(175, 300));
 	}
 	
 	/* -------------------------------------------------- *
@@ -74,6 +80,7 @@ public class PlayerPanel extends JPanel
 	{
 		btnRemovePlayer.setEnabled(b);
 		btnAddPlayer.setEnabled(b);
+		btnStart.setEnabled(b);
 		
 		return this;
 	}
@@ -88,8 +95,10 @@ public class PlayerPanel extends JPanel
 		
 		btnAddPlayer = new JButton("+");
 		btnRemovePlayer = new JButton("-");
+		btnStart = new JButton("Start");
 		
 		buttonArea.add(btnAddPlayer, BorderLayout.WEST);
+		buttonArea.add(btnStart, BorderLayout.CENTER);
 		buttonArea.add(btnRemovePlayer, BorderLayout.EAST);
 		
 		// remove button listener
@@ -112,12 +121,23 @@ public class PlayerPanel extends JPanel
 			}
 		});
 		
+		// add button listener
 		btnAddPlayer.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent ae)
 			{
 				createPlayer();
+			}
+		});
+		
+		btnStart.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent ae)
+			{
+				setButtonsEnabled(false);
+				MCP.getGame().startGame();
 			}
 		});
 		
