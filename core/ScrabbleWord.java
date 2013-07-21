@@ -43,7 +43,7 @@ public class ScrabbleWord
 		return this;
 	}
 	
-	public ScrabbleWord setPoints(int pointCount)
+	public ScrabbleWord setScore(int pointCount)
 	{
 		Toolbox.verifyNatural(pointCount, "pointCount");
 		
@@ -56,7 +56,7 @@ public class ScrabbleWord
 	 * ----------------- Getter methods ----------------- *
 	 * -------------------------------------------------- */
 	
-	public int getPoints()
+	public int getScore()
 	{
 		return points;
 	}

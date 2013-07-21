@@ -1,5 +1,7 @@
 package utils;
 
+import core.MasterControlProgram;
+
 public class Toolbox
 {
 
@@ -38,6 +40,14 @@ public class Toolbox
 		if(n <= 0)
 		{
 			throw new ScrabbleException(numberName + " is not natural");
+		}
+	}
+	
+	public static void verifyMasterControlProgram(MasterControlProgram mcp)
+	{
+		if(mcp == null)
+		{
+			System.exit(1);
 		}
 	}
 }
